@@ -1,0 +1,235 @@
+ <!DOCTYPE html>
+ <html> 
+      <script type="module" src="https://dev.doenet.org/cdn/doenet-standalone.js"> </script>
+     <link rel="stylesheet" href="https://dev.doenet.org/cdn/style.css">
+ <body onload="onPageLoad()">
+  
+ <script>
+ function onPageLoad() {
+   window.renderDoenetToContainer(document.querySelector(".doenetml-applet"));
+ }
+ </script>
+ 
+  <div class="doenetml-applet">
+      <script type="text/doenetml">
+
+        <aside boxed>
+  <title>
+    Instructions for Pretzel - Intro to Complex Numbers
+  </title>
+   
+  <ul>
+    <li>Start anywhere in the activity and enter 1 in the box next to the first problem you wish to solve.</li> 
+    <li>Search for your answer, enter '2' in the box and the attached problem becomes problem 2.</li> 
+    <li>Continue in this manner until you return to your first problem, completing the pretzel. There is only one correct path to the end, including all problems.</li>
+    <li>Happy solving!</li>
+  </ul>
+    
+</aside>
+
+
+<title>An Introduction to Complex Numbers</title>
+
+<setup>
+  <select name="notSq1">2 3 5</select>
+  <select name="notSq2">2 3 5</select>
+  <select name="notSq3">2 3 5</select>
+
+  <selectFromSequence assignNames="a" from="2" to="6"></selectFromSequence>
+  <math name="aSq" simplify>$a*$a</math>
+  <selectFromSequence assignNames="b" from="2" to="15" exclude="$a"></selectFromSequence>
+  <math name="bSq" simplify>$b*$b</math>
+  <selectFromSequence assignNames="c" from="2" to="6" exclude="$a $b"></selectFromSequence>
+  <math name="cSq" simplify>$c*$c</math>
+  <selectFromSequence assignNames="d" from="2" to="15" exclude="$a $b $c"></selectFromSequence>
+  <math name="dSq" simplify>$d*$d</math>
+  <selectFromSequence assignNames="e" from="2" to="15"></selectFromSequence>
+  <math name="eSq" simplify>$e*$e</math>
+  <selectFromSequence assignNames="f" from="2" to="15" exclude="$e"></selectFromSequence>
+  <math name="fSq" simplify>$f*$f</math>
+  <selectFromSequence assignNames="g" from="2" to="15" exclude="$e $f"></selectFromSequence>
+  <math name="gSq" simplify>$g*$g</math>
+  <selectFromSequence assignNames="h" from="2" to="15" exclude="$e $f $g"></selectFromSequence>
+  <math name="hSq" simplify>$h*$h</math>
+  <selectFromSequence assignNames="i" from="2" to="15" exclude="$e $f $g $h"></selectFromSequence>
+  <math name="iSq" simplify>$i*$i</math>
+</setup>
+
+<section><title></title>
+<section><title></title>
+  
+<shuffle>
+
+  <sideBySide margins = "0% 5% 0%">
+
+    <!-- 1 -->
+     <shuffle>
+    
+        <section>
+          <title>
+            Answer: <m><number>($a+$b i)($c-$d i)</number></m>
+          </title>
+          <mathInput name="p9" minWidth="25"/>Divide: <m>\displaystyle \frac{$a+$c i}{$e-$f i}</m>   
+        </section>
+
+        
+      
+    <!-- 2 -->
+      
+            <section>
+          <title>
+            Answer: <m><number>-i*sqrt(-$cSq*$dSq)</number></m>
+          </title>
+          <mathInput name="p5" minWidth="25"/> Simplify <m>i^{<math simplify>$e*4+1</math>}+i^{<math simplify>$f*40+3</math>}+i^{<math simplify>$g*400</math>}+i^{<math simplify>$h*4000+2</math>}</m>  
+        </section>    
+    
+   
+    
+      </shuffle>
+    </sideBySide>
+
+   
+    <sideBySide margins = "0% 5% 0%">
+    
+    <!-- 3 -->
+      <shuffle>
+
+        <section>
+          <title>
+            Answer: <m><number>4(i^$h + $a i^$g)</number></m>
+          </title>
+          <mathInput name="p12" minWidth="25"/> What is the reciprocal of <m>\sqrt{$notSq2}-i \sqrt{$notSq3}</m>?  
+        </section>
+      
+      <!-- 4 -->
+        
+        <section>
+          <title>
+            Answer: <m><number>sqrt(-$cSq)*sqrt(-$dSq)</number></m>
+          </title>
+          <mathInput name="p4" minWidth="25"/> Simplify <m>- i \sqrt{<math simplify>-$cSq*$dSq</math>}</m>  
+        </section>
+      </shuffle>
+    </sideBySide>
+      
+    <sideBySide margins = "0% 5% 0%">
+    
+    <!-- 5 -->
+      <shuffle>
+
+      <section>
+          <title>
+            Answer: <m>\frac{\sqrt{$notSq2}}{<math simplify>$notSq2+$notSq3</math>} + \frac{\sqrt{$notSq3}}{<math simplify>$notSq2+$notSq3</math>}i</m>
+          </title>
+          <mathInput name="p1" minWidth="25"/> Simplify <m>\sqrt{-$aSq}</m>  
+        </section>
+      
+      <!-- 6 -->
+        <section>
+          <title>
+            Answer: <math simplify><number>i^<math simplify>$e*4+1</math></number>+<number>i^<math simplify>$f*40+3</math></number>+<number>i^<math simplify>$g*400</math></number>+<number>i^<math simplify>$h*4000+2</math></number></math>
+          </title>
+          <mathInput name="p6" minWidth="25"/>Add: <m>($e+$f i)+($g+$h i)</m>
+        </section>
+        
+      </shuffle>
+    </sideBySide>
+    
+    <sideBySide margins = "0% 5% 0%">
+    
+    <!-- 7 -->
+      <shuffle>
+
+        <section>
+          <title>
+            Answer: <m><number>($a-$e i+$b i^2)($d-$i i +$f i^3)</number></m>
+          </title>
+          <mathInput name="p11" minWidth="25"/> What is the perimeter of a square with <m>side=i^{$h} + $a i^{$g}</m>  
+        </section>
+      
+        
+        
+      <!-- 8 -->
+        
+        <section>
+          <title>
+            Answer: <m><number>($h+$g i)-($f+$e i)</number></m>
+          </title>
+          <mathInput name="p8" minWidth="25"/>Multiply: <m>($a+$b i)($c-$d i)</m>    
+        </section>
+      </shuffle>
+    </sideBySide>
+    
+    <sideBySide margins = "0% 5% 0%">
+    
+    <!-- 9 -->
+      <shuffle>
+        <section>
+          <title>
+            Answer: <m>$a i</m>
+          </title>
+          <mathInput name="p2" minWidth="25"/> Simplify <m>\sqrt{<math simplify>-$notSq1*$b*$b</math>}</m>
+        </section>  
+      
+      <!-- 10 -->
+        <section>
+          <title>
+            Answer: <m>\frac{<math simplify>$a*$e-$c*$f</math>}{<math simplify>$eSq+$fSq</math>}+\frac{<math simplify>$a*$f+$c*$e</math>}{<math simplify>$eSq+$fSq</math>}i</m>
+          </title>
+          <mathInput name="p10" minWidth="25"/> What is the area of a rectangle with <m>length = $a-$e i+$b i^2</m> and <m>width = $d-$i i +$f i^3~</m>?  
+        </section>
+      </shuffle>
+    </sideBySide>
+    
+    <sideBySide margins = "0% 5% 0%">
+    
+    <!-- 11 -->
+      <shuffle>
+
+        <section>
+          <title>
+            Answer: <m><number>($e+$f i)+($g+$h i)</number></m>
+          </title>
+          <mathInput name="p7" minWidth="25"/> Subtract: <m>($h+$g i)-($f+$e i)</m>  
+        </section>
+      
+      <!-- 12 -->
+
+        <section>
+          <title>
+            Answer: <m>$b i \sqrt{$notSq1}</m>
+          </title>
+          <mathInput name="p3" minWidth="25"/> Simplify <m>\sqrt{<math simplify>-$cSq</math>} \cdot \sqrt{<math simplify>-$dSq</math>}</m>  
+        </section>
+      
+      
+
+      </shuffle>
+    </sideBySide>
+     
+</shuffle>
+  
+  <answer>
+    <award>
+      <when>
+        <mod><math>$p1 - 12</math> 12</mod> 
+      = <mod><math>$p2 - 1</math> 12</mod> 
+      = <mod><math>$p3 - 2</math> 12</mod> 
+      = <mod><math>$p4 - 3</math> 12</mod> 
+      = <mod><math>$p5 - 4</math> 12</mod> 
+      = <mod><math>$p6 - 5</math> 12</mod> 
+      = <mod><math>$p7 - 6</math> 12</mod> 
+      = <mod><math>$p8 - 7</math> 12</mod> 
+      = <mod><math>$p9 - 8</math> 12</mod> 
+      = <mod><math>$p10 - 9</math> 12</mod>
+      = <mod><math>$p11 - 10</math> 12</mod> 
+      = <mod><math>$p12 - 11</math> 12</mod> 
+      </when>
+    </award>
+  </answer>
+</section>
+</section>
+
+        </script>
+</div>
+</body>
