@@ -1,0 +1,210 @@
+ <!DOCTYPE html>
+ <html> 
+      <script type="module" src="https://dev.doenet.org/cdn/doenet-standalone.js"> </script>
+     <link rel="stylesheet" href="https://dev.doenet.org/cdn/style.css">
+ <body onload="onPageLoad()">
+  
+ <script>
+ function onPageLoad() {
+   window.renderDoenetToContainer(document.querySelector(".doenetml-applet"));
+ }
+ </script>
+ 
+  <div class="doenetml-applet">
+      <script type="text/doenetml">
+
+<section boxed><title>In Class Activity - Demo</title>
+<title>Think Like a Mathematician</title>
+
+<p>In this activity, students are invited to walk on a carefully scaffolded path taken by Mathematicians as they think through contextual or word problems. They are first asked to identify knowns vs unknowns and then encouraged to slowly build up equations to eventually solve a system of equations. </p>
+
+<answer submitLabelNoCorrectness="Choose your own adventure" showCorrectness="false">
+  <choiceInput>
+    <choice name="thelastofus">(TV Show) - Let's Take a Walk (Working)</choice>
+    <choice name="construction">(Construction) - Let's Fence a Garden (Working)</choice>
+    <choice name="family">(Theme Park) - Let's Ride a Rollercoaster (Placeholder choice)</choice>
+    <choice name="math">(Pure Math) - Let's Dive Right In (Placeholder choice)</choice>
+    <choice name="bball">(Basketball) - Let's GO Heat! (Placeholder choice)</choice>
+    <choice name="football">(Football) - Let's GO Dolphins! (Placeholder choice)</choice>
+    <choice name="food">(Cooking) - Let's have some Cake (Placeholder choice)</choice>
+  </choiceInput>
+</answer>
+
+
+<conditionalContent>
+  <case condition="$thelastofus">
+
+    <section boxed><title>Let's Take a Walk</title>
+    <p>Joel and Ellie can walk <m>2</m> miles on each rainy day and <m>3</m> miles on each dry day. During the summer, they experienced <m>8</m> more rainy days than dry days and walked a total of <m>36</m> miles.</p>
+      <problem>What are the two variables or unknown quantities in this problem? 
+          <answer maxNumAttempts="2">
+              <choice>The number of rainy days and miles walked on each rainy day.</choice>
+              <choice>The number of dry days and miles walked on each dry day.</choice>
+              <choice credit="1">The number of rainy days and the number of dry days.</choice>
+              <choice> The number of miles walked on each rainy day and the number of miles walked on each dry day.</choice>
+          </answer>
+      </problem>
+      
+      <problem><p>Choose a suitable variable for the number of rainy days.
+          <mathInput name="rainyDays"></mathInput></p>
+          <p>Choose a suitable variable for the number of dry days.
+          <mathInput name="dryDays"></mathInput></p>
+          <p>If Joel and Ellie experienced <m>8</m> more rainy days than dry days, what equation would relate the number of rainy and dry days? Remember to use the variables you chose above! <answer symbolicEquality simplifyOnCompare name="eq1">$rainyDays=8+$dryDays</answer></p>
+      </problem>
+    
+      <problem>
+          <p>If Joel and Ellie walk <m>2</m> miles on each rainy day, how many miles would they walk in <m>5</m> rainy days? <answer>10</answer></p>
+          <p>How many miles would they walk in <m>8</m> rainy days? <answer>16</answer></p>
+          <p>How many miles would they walk in $rainyDays rainy days? <answer name="totalRainyDays">2$rainyDays</answer></p>
+      </problem>
+      
+      <problem>
+          <p>If Joel and Ellie walk <m>3</m> miles on each dry day, how many miles would they walk in <m>4</m> dry days? <answer>12</answer></p>
+          <p>How many miles would they walk in <m>9</m> dry days? <answer>27</answer></p>
+          <p>How many miles would they walk in $dryDays dry days? <answer name="totalDryDays">3$dryDays</answer></p>
+      </problem>
+    
+      <problem>
+          <p>If Joel and Ellie walked a total of <m>36</m> miles, what equation would relate the number of miles walked on rainy and dry days? Remember to use the variables you chose above! <answer simplifyOnCompare name="eq2">3$dryDays+2$rainyDays=36</answer></p>
+      </problem>
+    
+      <problem><p>Drag the points on the <alert>orange</alert> line to graph the <alert>first</alert> equation you created.</p> 
+        <p>Drag the points on the <alert>red</alert> line to graph the <alert>second</alert> equation you created.</p> 
+        <em>Note that the number of rainy days is on the vertical axis and the number of dry days is on the horizontal axis.</em> 
+        <div newNamespace>
+        <graph name="g1" grid="1 1" xmin="-5" xmax="25" ymin="-5" ymax="25">
+          <xLabel>dry days</xLabel>
+          <yLabel>rainy days</yLabel>
+          <point name="dp1" styleNumber="5">(5,10)
+            <constraints><constrainToGrid dx="1" dy="1"/></constraints>
+          </point>
+          <point name="dp2" styleNumber="5">(8,10)
+            <constraints><constrainToGrid dx="1" dy="1"/></constraints>
+          </point>
+          <line name="userLine1" styleNumber="3" through="$dp1 $dp2"><label>First Equation</label></line>
+          <line name="correctLine1" styleNumber="2" hide>y=8+x</line>
+          
+          <point name="dp3" styleNumber="5">(5,4)
+            <constraints><constrainToGrid dx="1" dy="1"/></constraints>
+          </point>
+          <point name="dp4" styleNumber="5">(8,4)
+            <constraints><constrainToGrid dx="1" dy="1"/></constraints>
+          </point>
+          <line name="userLine2" styleNumber="2" through="$dp3 $dp4"><label>Second Equation</label></line>
+          <line name="correctLine2" styleNumber="4" hide>3x+2y=36</line>
+        </graph>
+    
+        <answer name="ans2">
+          <award><when>$userLine1 = $correctLine1 and $userLine2= $correctLine2</when></award>
+        </answer>
+        </div>
+      </problem>
+    
+      <problem>Based on the graph above, how many rainy days did Joel and Ellie experience? <answer>12</answer>
+        Based on the graph above, how many dry days did Joel and Ellie experience? <answer>4</answer>
+      </problem>
+    </section>
+  </case>
+
+    <case condition="$construction">
+      <section boxed><title>Let's Fence a Garden</title>
+      <p>Alex wants to build a fence around a garden using a mix of decorative and plain fencing on opposite sides. The plain fencing costs <m>$2</m> per foot, while the decorative fencing costs <m>$3</m> per foot. While planning, Alex realizes he will need <m>8</m> more feet of decorative fencing than plain fencing for a total cost of <m>$36</m>.</p>
+  
+      <problem>What are the two variables or unknown quantities in this problem? 
+          <answer maxNumAttempts="2">
+              <choice>The number of feet of decorative fencing and cost per foot of the decorative fencing.</choice>
+              <choice>The number of feet of plain fencing and cost per foot of the plain fencing.</choice>
+              <choice credit="1">The number of feet of decorative fencing and the number of feet of plain fencing.</choice>
+              <choice> The cost per foot of the decorative fencing and cost per foot of the plain fencing.</choice>
+          </answer>
+      </problem>
+      
+      <problem><p>Choose a suitable variable for the number of feet of decorative fencing.
+          <mathInput name="decorativeFencing"></mathInput></p>
+          <p>Choose a suitable variable for the number of feet of plain fencing.
+          <mathInput name="plainFencing"></mathInput></p>
+          <p>If Alex needs <m>8</m> more feet of the decorative fencing than plain fencing, what equation would relate the number of feet of decorative fencing and plain fencing? Remember to use the variables you chose above! <answer simplifyOnCompare name="fenceeq1">$decorativeFencing=8+$plainFencing</answer></p>
+      </problem>
+    
+      <problem>
+          <p>If the plain fencing costs <m>$2</m>/ft, how much would <m>5</m> feet of plain fencing cost? <answer>10</answer></p>
+          <p>How much would <m>8</m> ft of plain fencing cost? <answer>16</answer></p>
+          <p>How much would $plainFencing feet of plain fencing cost? <answer name="totalplainFencing">2$plainFencing</answer></p>
+      </problem>
+      
+      <problem>
+          <p>If the decorative fencing costs <m>$3</m>/ft, how much would <m>5</m> feet of decorative fencing cost? <answer>15</answer></p>
+          <p>How much would <m>8</m> ft of decorative fencing cost? <answer>24</answer></p>
+          <p>How much would $decorativeFencing feet of plain fencing cost? <answer name="totaldecorativeFencing">3$decorativeFencing</answer></p>
+      </problem>
+    
+      <problem>
+          <p>If Alex spends a total of <m>$36</m>, what equation relates the number of feet of decorative and plain fencing? Remember to use the variables you chose above! <answer simplifyOnCompare name="fenceq2">3$decorativeFencing+2$plainFencing=36</answer></p>
+      </problem>
+    
+      <problem><p>Drag the points on the <alert>orange</alert> line to graph the <alert>first</alert> equation you created.</p> 
+        <p>Drag the points on the <alert>red</alert> line to graph the <alert>second</alert> equation you created.</p> 
+        <em>Note that the length of plain fencing is on the vertical axis, and the length of decorative fencing is on the horizontal axis.</em> 
+        <div newNamespace>
+        <graph name="g1" grid="1 1" xmin="-5" xmax="25" ymin="-5" ymax="25">
+          <xLabel>decorative fence</xLabel>
+          <yLabel>plain fence</yLabel>
+          <point name="dp1" styleNumber="5">(5,10)
+            <constraints><constrainToGrid dx="1" dy="1"/></constraints>
+          </point>
+          <point name="dp2" styleNumber="5">(8,10)
+            <constraints><constrainToGrid dx="1" dy="1"/></constraints>
+          </point>
+          <line name="userLine1" styleNumber="3" through="$dp1 $dp2"><label>First Equation</label></line>
+          <line name="correctLine1" styleNumber="2" hide>y=8+x</line>
+          
+          <point name="dp3" styleNumber="5">(5,4)
+            <constraints><constrainToGrid dx="1" dy="1"/></constraints>
+          </point>
+          <point name="dp4" styleNumber="5">(8,4)
+            <constraints><constrainToGrid dx="1" dy="1"/></constraints>
+          </point>
+          <line name="userLine2" styleNumber="2" through="$dp3 $dp4"><label>Second Equation</label></line>
+          <line name="correctLine2" styleNumber="4" hide>3x+2y=36</line>
+        </graph>
+    
+        <answer name="ans2">
+          <award><when>$userLine1 = $correctLine1 and $userLine2= $correctLine2</when></award>
+        </answer>
+        </div>
+      </problem>
+    
+      <problem>Based on the graph above, how many feet of plain fencing did Alex purchase? <answer>12</answer>
+        Based on the graph above, how many feet of decorative fencing did Alex purchase? <answer>4</answer>
+      </problem>
+
+  </section>
+    
+    </case>
+    <case condition="$family">
+      <section boxed><title>Let's Ride a Rollercoaster</title></section>
+<p>This is a placeholder for the activity that would go here.</p>
+    </case>
+    <case condition="$math">
+      <section boxed><title>Let's Dive Right In</title></section>
+<p>This is a placeholder for the activity that would go here.</p>
+    </case>
+    <case condition="$bball">
+      <section boxed><title>Let's GO Heat!</title></section>
+<p>This is a placeholder for the activity that would go here.</p>
+    </case>
+    <case condition="$football">
+      <section boxed><title>Let's GO Dolphins!</title></section>
+<p>This is a placeholder for the activity that would go here.</p>
+    </case>
+    <case condition="$food">
+      <section boxed><title>Let's have some Cake</title></section>
+<p>This is a placeholder for the activity that would go here.</p>
+    </case>
+</conditionalContent>
+
+</section>
+
+</script>
+</div>
+</body>
