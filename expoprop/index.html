@@ -1,0 +1,402 @@
+ <!DOCTYPE html>
+ <html> 
+      <script type="module" src="https://dev.doenet.org/cdn/doenet-standalone.js"> </script>
+     <link rel="stylesheet" href="https://dev.doenet.org/cdn/style.css">
+ <body onload="onPageLoad()">
+  
+ <script>
+ function onPageLoad() {
+   window.renderDoenetToContainer(document.querySelector(".doenetml-applet"));
+ }
+ </script>
+ 
+  <div class="doenetml-applet">
+      <script type="text/doenetml">
+
+<!-- **********************************************************************
+
+Course:    Intermediate Algebra/Algebra I
+Chapter:   Introduction to Polynomials
+Section:   Properties of Exponents
+Author:    Anurag Katyal, Fall 2023
+Contact:   anurag@whyoverhow.com
+
+I'd love feedback on the activity or suggestions for improving the activity. 
+
+About the activity: An activity on practicing the use of properties of exponents.
+
+Problems are modified or taken from Beginning and Intermediate Algebra by Tyler Wallace - http://www.wallace.ccfaculty.org/book/5.2%20Negative%20Exponents%20Practice.pdf.
+
+********************************************************************** -->
+
+<title>Properties of Exponents</title>
+
+<aside boxed><title>Properties of Exponents</title>
+  <ol>
+    <li><alert>Product Property</alert>: When multiplying terms with the same bases, we add the exponents. 
+      <p>Ex: <m>x^2 \cdot x^5=x^{2+5}=x^7</m></p></li>
+    <li><alert>Quotient Property</alert>: When dividing terms with the same bases, we subtract the exponents (<em>top power - bottom power</em>). 
+      <p>Ex: <m>\frac{x^2}{x^5}=x^{2-5}=x^{-3}</m></p></li>
+    <li><alert>Power Property</alert>: When raising a power to another power, we multiply the exponents. 
+      <p>Ex: <m>(x^2)^5=x^{10}</m></p></li>
+    <li><alert>Product to a Power Property</alert>: When raising a product to a power, we raise each term of the product to the power. 
+      <p>Ex: <m>(xy)^5=x^5y^5</m></p></li>
+    <li><alert>Quotient to a Power Property</alert>: When raising a quotient to a power, we raise each term of the quotient to the power. 
+      <p>Ex: <m>\left(\frac{x}{y}\right)^5=\frac{x^5}{y^5}</m></p></li>
+    <li><alert>Negative Power Property</alert>: When moving a term from the numerator to the denominator or from the denominator to the numerator, we change the sign of the power. 
+      <p>Ex: <m>x^{-5}=\frac{1}{x^5}</m> (<m>x</m> moving from top to bottom)</p> 
+      <p>Ex: <m>\frac{1}{x^{-5}}=x^5</m> (<m>x</m> moving from bottom to top)</p></li>
+  </ol>
+</aside>
+
+<problem boxed includeAutoNumber="false"> <title>Warm Up</title>
+
+  <p>The following questions only have one attempt. Read the questions carefully before selecting an answer!</p>
+  <ol>
+
+            <li>Which property will give the following result? <me>x^3 \cdot y^4=(x \cdot y)^{12}</me>
+      <answer maxNumAttempts="1">
+        <choice>Product Property</choice>
+        <choice>Quotient Property</choice>
+        <choice>Power Property</choice>
+        <choice>Product to a Power Property</choice>
+        <choice>Quotient to a Power Property</choice>
+        <choice>Negative Power Property</choice>
+        <choice credit="1">No properties of exponents give the above result</choice>
+      </answer>
+    </li>
+        <li>Which property will give the following result? <me>\left(\frac{x^{-3}}{y^{-1}}\right)^{-4}=\left(\frac{y^{1}}{x^{3}}\right)^{-4}</me>
+      <answer maxNumAttempts="1">
+        <choice>Product Property</choice>
+        <choice>Quotient Property</choice>
+        <choice>Power Property</choice>
+        <choice>Product to a Power Property</choice>
+        <choice>Quotient to a Power Property</choice>
+        <choice credit="1">Negative Power Property</choice>
+        <choice>No properties of exponents give the above result</choice>
+      </answer>
+    </li>
+
+        <li>Which property will give the following result? <me>x^{-3} \cdot x^{-1}=x^{-4}</me>
+      <answer maxNumAttempts="1">
+        <choice credit="1">Product Property</choice>
+        <choice>Quotient Property</choice>
+        <choice>Power Property</choice>
+        <choice>Product to a Power Property</choice>
+        <choice>Quotient to a Power Property</choice>
+        <choice>Negative Power Property</choice>
+        <choice>No properties of exponents give the above result</choice>
+      </answer>
+    </li>
+
+        <li>Which property will give the following result? <me>(x^{-3})^{-1}=x^{3}</me>
+      <answer maxNumAttempts="1">
+        <choice>Product Property</choice>
+        <choice>Quotient Property</choice>
+        <choice credit="1">Power Property</choice>
+        <choice>Product to a Power Property</choice>
+        <choice>Quotient to a Power Property</choice>
+        <choice>Negative Power Property</choice>
+        <choice>No properties of exponents give the above result</choice>
+      </answer>
+    </li>
+
+        <li>Which property will give the following result? <me>(x^{-3}y^{-1})^{-4}=x^{12}y^4</me>
+      <answer maxNumAttempts="1">
+        <choice>Product Property</choice>
+        <choice>Quotient Property</choice>
+        <choice>Power Property</choice>
+        <choice credit="1">Product to a Power Property</choice>
+        <choice>Quotient to a Power Property</choice>
+        <choice>Negative Power Property</choice>
+        <choice>No properties of exponents give the above result</choice>
+      </answer>
+    </li>
+
+        <li>Which property will give the following result? <me>\left(\frac{x^{-3}}{y^{-1}}\right)^{-4}=\frac{x^{12}}{y^4}</me>
+      <answer maxNumAttempts="1">
+        <choice>Product Property</choice>
+        <choice>Quotient Property</choice>
+        <choice>Power Property</choice>
+        <choice>Product to a Power Property</choice>
+        <choice credit="1">Quotient to a Power Property</choice>
+        <choice>Negative Power Property</choice>
+        <choice>No properties of exponents give the above result</choice>
+      </answer>
+    </li>
+
+
+
+        <li>Which property will give the following result? <me>x^{3} + x^{4}=x^{7}</me>
+      <answer maxNumAttempts="1">
+        <choice>Product Property</choice>
+        <choice>Quotient Property</choice>
+        <choice>Power Property</choice>
+        <choice>Product to a Power Property</choice>
+        <choice>Quotient to a Power Property</choice>
+        <choice>Negative Power Property</choice>
+        <choice credit="1">No properties of exponents give the above result</choice>
+      </answer>
+    </li>
+
+        <li>Which property will give the following result? <me>\frac{x^{-3}}{x^{-1}}=x^{-2}</me>
+      <answer maxNumAttempts="1">
+        <choice>Product Property</choice>
+        <choice credit="1">Quotient Property</choice>
+        <choice>Power Property</choice>
+        <choice>Product to a Power Property</choice>
+        <choice>Quotient to a Power Property</choice>
+        <choice>Negative Power Property</choice>
+        <choice>No properties of exponents give the above result</choice>
+      </answer>
+    </li>
+  </ol>
+
+</problem>
+
+<problem boxed includeAutoNumber="false"> <title>Problem 1</title>
+  <p><alert>Do this problem on the large white board using only one property in each step. For each step, write down the name of the property you use.</alert></p>
+  
+  Simplify <m>{\Large{\frac{2 y z x^2}{2 x^4 y^4 z^{-2} \cdot\left(z y^2\right)^4}}}</m> =<answer simplifyOnCompare="true">
+      <mathInput name="userInput11"/>
+      <award>x^(-2)y^(-11)z^(-1)</award>
+    </answer>
+    <p>The following answers are equivalent to the one you entered above. If your answer is incorrect, just erase the grey blank spots. Be careful not to delete the template! </p>
+    <p>=<answer simplifyOnCompare="true">
+      <mathInput name="userInput12" prefillLatex="\frac{}{} \cdot x^{ }y^{ }z^{ }"/>
+      <award>x^(-2)y^(-11)z^(-1)</award>
+    </answer></p>
+    <p>=<answer simplifyOnCompare="true">
+      <mathInput name="userInput13" prefillLatex="\frac{}{} \cdot \frac{x^{}}{y^{ }z^{ }}"/>
+      <award>x^(-2)y^(-11)z^(-1)</award>
+    </answer></p>
+    <p>=<answer simplifyOnCompare="true">
+      <mathInput name="userInput14" prefillLatex="\frac{}{} \cdot \frac{x^{}z^{ }}{y^{ }}"/>
+      <award>x^(-2)y^(-11)z^(-1)</award>
+    </answer></p>
+    <p>=<answer simplifyOnCompare="true">
+      <mathInput name="userInput15" prefillLatex="\frac{}{} \cdot \frac{1}{x^{}y^{ }z^{ }}"/>
+      <award>x^(-2)y^(-11)z^(-1)</award>
+    </answer></p>
+</problem>
+
+
+<problem boxed includeAutoNumber="false"> <title>Problem 2</title>
+    <p><alert>Do this problem on the large white board using only one property in each step.</alert></p>
+  Simplify <m>{\Large{\frac{\left(c b^3\right)^2 \cdot 2 a^{-3} b^2}{\left(a^3 b^{-2} c^3\right)^3}}}</m> =<answer simplifyOnCompare="true">
+      <mathInput name="userInput21"/>
+      <award>2 b^(14)/(a^(12) c^(7))</award>
+    </answer>
+    <p>The following answers are equivalent to the one you entered above. If your answer is incorrect, just erase the grey blank spots. Be careful not to delete the template! </p>
+    <p>=<answer simplifyOnCompare="true">
+      <mathInput name="userInput22" prefillLatex="\frac{}{} \cdot a^{ }b^{ }c^{ }"/>
+      <award>2 b^(14)/(a^(12) c^(7))</award>
+    </answer></p>
+    <p>=<answer simplifyOnCompare="true">
+      <mathInput name="userInput23" prefillLatex="\frac{}{} \cdot \frac{a^{}}{b^{ }c^{ }}"/>
+      <award>2 b^(14)/(a^(12) c^(7))</award>
+    </answer></p>
+    <p>=<answer simplifyOnCompare="true">
+      <mathInput name="userInput24" prefillLatex="\frac{}{} \cdot \frac{a^{}c^{ }}{b^{ }}"/>
+      <award>2 b^(14)/(a^(12) c^(7))</award>
+    </answer></p>
+    <p>=<answer simplifyOnCompare="true">
+      <mathInput name="userInput25" prefillLatex="\frac{}{} \cdot \frac{1}{a^{}b^{ }c^{ }}"/>
+      <award>2 b^(14)/(a^(12) c^(7))</award>
+    </answer></p>
+</problem>
+
+<problem boxed includeAutoNumber="false"> <title>Problem 3</title>
+  Simplify <m>{\Large{\frac{2^4 m p n^{-3}}{\left(m^0 n^{-4} p^2\right)^3 \cdot 2 n^2 p^0}}}</m> =<answer simplifyOnCompare="true">
+      <mathInput name="userInput31"/>
+      <award>8m n^(7)/p^(5)</award>
+    </answer>
+    <p>The following answers are equivalent to the one you entered above. If your answer is incorrect, just erase the grey blank spots. Be careful not to delete the template! </p>
+  <p>=<answer simplifyOnCompare="true">
+      <mathInput name="userInput32" prefillLatex="\frac{}{} \cdot m^{ }n^{ }p^{ }"/>
+      <award>8m n^(7)/p^(5)</award>
+    </answer></p>
+    <p>=<answer simplifyOnCompare="true">
+      <mathInput name="userInput33" prefillLatex="\frac{}{} \cdot \frac{m^{}}{n^{ }p^{ }}"/>
+      <award>8m n^(7)/p^(5)</award>
+    </answer></p>
+    <p>=<answer simplifyOnCompare="true">
+      <mathInput name="userInput34" prefillLatex="\frac{}{} \cdot \frac{m^{}p^{ }}{n^{ }}"/>
+      <award>8m n^(7)/p^(5)</award>
+    </answer></p>
+    <p>=<answer simplifyOnCompare="true">
+      <mathInput name="userInput35" prefillLatex="\frac{}{} \cdot \frac{1}{m^{}n^{ }p^{ }}"/>
+      <award>8m n^(7)/p^(5)</award>
+    </answer></p>
+</problem>
+
+<problem boxed includeAutoNumber="false"> <title>Problem 4</title>
+  Simplify <m>{2 x^4 y^{-2} \cdot\left(2 x y^3\right)^4}</m> =<answer simplifyOnCompare="true">
+      <mathInput name="userInput41"/>
+      <award>32x^8y^(10)</award>
+    </answer>
+    <p>The following answers are equivalent to the one you entered above. If your answer is incorrect, just erase the grey blank spots. Be careful not to delete the template! </p>
+  <p>=<answer simplifyOnCompare="true">
+      <mathInput name="userInput42" prefillLatex="\frac{}{} \cdot x^{ }y^{ }"/>
+      <award>32x^8y^(10)</award>
+    </answer></p>
+    <p>=<answer simplifyOnCompare="true">
+      <mathInput name="userInput43" prefillLatex="\frac{}{} \cdot \frac{x^{}}{y^{ }}"/>
+      <award>32x^8y^(10)</award>
+    </answer></p>
+    <p>=<answer simplifyOnCompare="true">
+      <mathInput name="userInput44" prefillLatex="\frac{}{} \cdot \frac{y^{}}{x^{ }}"/>
+      <award>32x^8y^(10)</award>
+    </answer></p>
+    <p>=<answer simplifyOnCompare="true">
+      <mathInput name="userInput45" prefillLatex="\frac{}{} \cdot \frac{1}{x^{}y^{ }}"/>
+      <award>32x^8y^(10)</award>
+    </answer></p>
+</problem>
+
+<problem boxed includeAutoNumber="false"> <title>Problem 5</title>
+  Simplify <m>{\Large{\frac{2 b^4 c^{-2} \cdot\left(2 b^3 c^2\right)^{-4}}{a^{-2} b^4}}}</m> =<answer simplifyOnCompare="true">
+      <mathInput name="userInput51"/>
+      <award>a^2/(8 b^(12)c^(10))</award>
+    </answer>
+    <p>The following answers are equivalent to the one you entered above. If your answer is incorrect, just erase the grey blank spots. Be careful not to delete the template! </p>
+  <p>=<answer simplifyOnCompare="true">
+      <mathInput name="userInput52" prefillLatex="\frac{}{} \cdot a^{ }b^{ }c^{ }"/>
+      <award>a^2/(8 b^(12)c^(10))</award>
+    </answer></p>
+    <p>=<answer simplifyOnCompare="true">
+      <mathInput name="userInput53" prefillLatex="\frac{}{} \cdot \frac{a^{}}{b^{ }c^{ }}"/>
+      <award>a^2/(8 b^(12)c^(10))</award>
+    </answer></p>
+    <p>=<answer simplifyOnCompare="true">
+      <mathInput name="userInput54" prefillLatex="\frac{}{} \cdot \frac{a^{}c^{ }}{b^{ }}"/>
+      <award>a^2/(8 b^(12)c^(10))</award>
+    </answer></p>
+    <p>=<answer simplifyOnCompare="true">
+      <mathInput name="userInput55" prefillLatex="\frac{}{} \cdot \frac{1}{a^{}b^{ }c^{ }}"/>
+      <award>a^2/(8 b^(12)c^(10))</award>
+    </answer></p>
+</problem>
+
+<problem boxed includeAutoNumber="false"> <title>Problem 6</title>
+  Simplify <m>{\Large{\left(\frac{2 a^2 b^3 c^{-2}}{a^{-1}c^3}\right)^4}}</m> =<answer simplifyOnCompare="true">
+      <mathInput name="userInput61"/>
+      <award>16 a^(12) b^(12) c^(-20)</award>
+    </answer>
+    <p>The following answers are equivalent to the one you entered above. If your answer is incorrect, just erase the grey blank spots. Be careful not to delete the template! </p>
+  <p>=<answer simplifyOnCompare="true">
+      <mathInput name="userInput62" prefillLatex="\frac{}{} \cdot a^{ }b^{ }c^{ }"/>
+      <award>16 a^(12) b^(12) c^(-20)</award>
+    </answer></p>
+    <p>=<answer simplifyOnCompare="true">
+      <mathInput name="userInput63" prefillLatex="\frac{}{} \cdot \frac{a^{}}{b^{ }c^{ }}"/>
+      <award>16 a^(12) b^(12) c^(-20)</award>
+    </answer></p>
+    <p>=<answer simplifyOnCompare="true">
+      <mathInput name="userInput64" prefillLatex="\frac{}{} \cdot \frac{a^{}c^{ }}{b^{ }}"/>
+      <award>16 a^(12) b^(12) c^(-20)</award>
+    </answer></p>
+    <p>=<answer simplifyOnCompare="true">
+      <mathInput name="userInput65" prefillLatex="\frac{}{} \cdot \frac{1}{a^{}b^{ }c^{ }}"/>
+      <award>16 a^(12) b^(12) c^(-20)</award>
+    </answer></p>
+</problem>
+
+<problem boxed includeAutoNumber="false"> <title>Problem 7</title>
+ Simplify <m>{\left(a^4 b^{-3}\right)^3 \cdot 2 a^3 b^{-2}}</m> =<answer simplifyOnCompare="true">
+      <mathInput name="userInput71"/>
+      <award>2 a^(15)/b^(11)</award>
+    </answer>
+    <p>The following answers are equivalent to the one you entered above. If your answer is incorrect, just erase the grey blank spots. Be careful not to delete the template! </p>
+  <p>=<answer simplifyOnCompare="true">
+      <mathInput name="userInput72" prefillLatex="\frac{}{} \cdot a^{ }b^{ }"/>
+      <award>2 a^(15)/b^(11)</award>
+    </answer></p>
+    <p>=<answer simplifyOnCompare="true">
+      <mathInput name="userInput73" prefillLatex="\frac{}{} \cdot \frac{a^{}}{b^{ }}"/>
+      <award>2 a^(15)/b^(11)</award>
+    </answer></p>
+    <p>=<answer simplifyOnCompare="true">
+      <mathInput name="userInput74" prefillLatex="\frac{}{} \cdot \frac{b^{ }}{a^{ }}"/>
+      <award>2 a^(15)/b^(11)</award>
+    </answer></p>
+    <p>=<answer simplifyOnCompare="true">
+      <mathInput name="userInput75" prefillLatex="\frac{}{} \cdot \frac{1}{a^{ }b^{ }}"/>
+      <award>2 a^(15)/b^(11)</award>
+    </answer></p>
+</problem>
+
+<problem boxed includeAutoNumber="false"> <title>Problem 8</title>
+  Simplify <m>{\Large{\left(\frac{\left(2 x^{-3} y^0 z^{-1}\right)^3 \cdot x^{-3} y^2}{2 x^3}\right)^{-2}}}</m> =<answer simplifyOnCompare="true">
+      <mathInput name="userInput81"/>
+      <award>x^(30)z^6/(16 y^4)</award>
+    </answer>
+    <p>The following answers are equivalent to the one you entered above. If your answer is incorrect, just erase the grey blank spots. Be careful not to delete the template! </p>
+  <p>=<answer simplifyOnCompare="true">
+      <mathInput name="userInput82" prefillLatex="\frac{}{} \cdot x^{ }y^{ }z^{ }"/>
+      <award>x^(30)z^6/(16 y^4)</award>
+    </answer></p>
+    <p>=<answer simplifyOnCompare="true">
+      <mathInput name="userInput83" prefillLatex="\frac{}{} \cdot \frac{x^{}}{y^{ }z^{ }}"/>
+      <award>x^(30)z^6/(16 y^4)</award>
+    </answer></p>
+    <p>=<answer simplifyOnCompare="true">
+      <mathInput name="userInput84" prefillLatex="\frac{}{} \cdot \frac{x^{}z^{ }}{y^{ }}"/>
+      <award>x^(30)z^6/(16 y^4)</award>
+    </answer></p>
+    <p>=<answer simplifyOnCompare="true">
+      <mathInput name="userInput85" prefillLatex="\frac{}{} \cdot \frac{1}{x^{}y^{}z^{}}"/>
+      <award>x^(30)z^6/(16 y^4)</award>
+    </answer></p>
+</problem>
+
+<!-- <problem boxed includeAutoNumber="false"> <title>Problem 9</title>
+  Simplify <m>{\Large{}}</m> =<answer simplifyOnCompare="true">
+      <mathInput name="userInput91"/>
+      <award></award>
+    </answer>
+    <p>=<answer simplifyOnCompare="true">
+      <mathInput name="userInput92" prefillLatex="\frac{}{} \cdot a^{ }b^{ }c^{ }"/>
+      <award></award>
+    </answer></p>
+    <p>=<answer simplifyOnCompare="true">
+      <mathInput name="userInput93" prefillLatex="\frac{}{} \cdot \frac{c^{}}{b^{ }c^{ }}"/>
+      <award></award>
+    </answer></p>
+    <p>=<answer simplifyOnCompare="true">
+      <mathInput name="userInput94" prefillLatex="\frac{}{} \cdot \frac{a^{}c^{ }}{b^{ }}"/>
+      <award></award>
+    </answer></p>
+    <p>=<answer simplifyOnCompare="true">
+      <mathInput name="userInput95" prefillLatex="\frac{}{} \cdot \frac{1}{a^{}b^{ }c^{ }}"/>
+      <award></award>
+    </answer></p>
+</problem>
+
+<problem boxed includeAutoNumber="false"> <title>Problem 10</title>
+  Simplify <m>{\Large{}}</m> =<answer simplifyOnCompare="true">
+      <mathInput name="userInput101"/>
+      <award></award>
+    </answer>
+    <p>=<answer simplifyOnCompare="true">
+      <mathInput name="userInput102" prefillLatex="\frac{}{} \cdot a^{ }b^{ }c^{ }"/>
+      <award></award>
+    </answer></p>
+    <p>=<answer simplifyOnCompare="true">
+      <mathInput name="userInput103" prefillLatex="\frac{}{} \cdot \frac{c^{}}{b^{ }c^{ }}"/>
+      <award></award>
+    </answer></p>
+    <p>=<answer simplifyOnCompare="true">
+      <mathInput name="userInput104" prefillLatex="\frac{}{} \cdot \frac{a^{}c^{ }}{b^{ }}"/>
+      <award></award>
+    </answer></p>
+    <p>=<answer simplifyOnCompare="true">
+      <mathInput name="userInput105" prefillLatex="\frac{}{} \cdot \frac{1}{a^{}b^{ }c^{ }}"/>
+      <award></award>
+    </answer></p>
+</problem> -->
+
+        
+        </script>
+</div>
+</body>
