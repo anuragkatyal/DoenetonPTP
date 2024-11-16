@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+ <html> 
+      <script type="module" src="https://dev.doenet.org/cdn/doenet-standalone.js"> </script>
+     <link rel="stylesheet" href="https://dev.doenet.org/cdn/style.css">
+ <body onload="onPageLoad()">
+  
+ <script>
+ function onPageLoad() {
+   window.renderDoenetToContainer(document.querySelector(".doenetml-applet"));
+ }
+ </script>
+ 
+  <div class="doenetml-applet">
+      <script type="text/doenetml">
+
+
+
+
+<!-- 
+
+Course:    Intermediate Algebra
+Chapter:   #1. Foundations
+Section:   #2. Order of Operations
+Author:    Anurag Katyal, Fall 2024
+Contact:   anurag@whyoverhow.com 
+
+About the activity: A review of the order of operations.
+
+Inspired by Melissa Lynn's take on Parson's Problems here - https://www.doenet.org/portfolioviewer/_8PlM9sUhhLKJOrqDAF0Ft
+
+-->
+
+
+
+<title>Order of Operations</title>
+
+  <p> Correct (and sometimes incorrect) steps to simplifying expressions are shown below, but they are out of order. Drag the correct steps to the left and place them in order with the question at the top. Incorrect steps, if any, should remain in the unused pile on the right side. </p> 
+
+<problem styleNumber="$colorChoice" newNamespace><title>Problem 1</title>
+
+  <setup>
+        
+    <selectFromSequence name="a" from="-10" to="-1"></selectFromSequence>
+    <selectFromSequence name="b" from="1" to="6"></selectFromSequence>
+    <selectFromSequence name="c" from="7" to="12"></selectFromSequence>
+    <selectFromSequence name="d" from="-10" to="-1"></selectFromSequence>
+    
+    <m name="question">[$a-($b-$c)] \div ($d)</m>
+    <m name="s1">[$a-(<math simplify>$b-$c</math>)] \div ($d)</m>
+    <m name="s2">[$a+<math simplify>-($b-$c)</math>] \div ($d)</m>
+    <m name="wrongs2">[<math simplify>-$a</math>+<math simplify>-($b-$c)</math>] \div ($d)</m>
+    <m name="s3">[<math simplify>$a-($b-$c)</math>] \div ($d)</m>
+    <m name="wrongs3">[<math simplify>-$a-($b-$c)</math>] \div ($d)</m>
+    <m name="s4"><math simplify>[$a-($b-$c)]/ ($d)</math></m>
+    <m name="wrongs4"><math simplify>[-$a-($b-$c)]/($d)</math></m>
+  </setup>
+  
+  <graph displayXAxis="false" displayYAxis="false" showNavigation="false" showBorder="true" size="large" aspectRatio="3/2" ymin="-7" ymax="10">
+    <line styleNumber="5" draggable="false">x=0</line>
+    <line styleNumber="5" draggable="false">y=8</line>
+    <text styleNumber="5" draggable="false" anchor="(-5,9)">Correct steps:</text>
+    <text styleNumber="5" draggable="false" anchor="(5,9)">Unused steps:</text>
+    
+    <m name = "q" anchor="($qloc.x, $qloc.y)">\displaystyle $question</m>
+    <point name="qloc" fixed hide>(-5,7)
+      <constraints>
+        <constrainToGrid></constrainToGrid>
+      </constraints>
+    </point>
+  
+    <m name = "step1" anchor="($step1loc.x, $step1loc.y)">\displaystyle $s1</m>
+    <point name="step1loc" showCoordsWhenDragging="false" hide>(5,1)    
+      <constraints>
+        <constrainToGrid></constrainToGrid>
+      </constraints>
+    </point>
+    
+    <m name = "step2" anchor="($step2loc.x, $step2loc.y)">\displaystyle $s2</m>
+    <point name="step2loc" showCoordsWhenDragging="false" hide>(5,-1)
+      <constraints><constrainToGrid></constrainToGrid></constraints>
+    </point>
+
+    <m name = "wrongstep2" anchor="($wrongstep2loc.x, $wrongstep2loc.y)">\displaystyle $wrongs2</m>
+    <point name="wrongstep2loc" showCoordsWhenDragging="false" hide>(5,-3)
+      <constraints><constrainToGrid></constrainToGrid></constraints>
+    </point>
+    
+    <m name = "step3" anchor="($step3loc.x, $step3loc.y)">\displaystyle $s3</m>
+    <point name="step3loc" showCoordsWhenDragging="false" hide>(5,3)
+      <constraints><constrainToGrid></constrainToGrid></constraints>
+    </point>
+
+    <m name = "wrongstep3" anchor="($wrongstep3loc.x, $wrongstep3loc.y)">\displaystyle $wrongs3</m>
+    <point name="wrongstep3loc" showCoordsWhenDragging="false" hide>(5,5)
+      <constraints><constrainToGrid></constrainToGrid></constraints>
+    </point>
+    
+    <m name = "step4" anchor="($step4loc.x, $step4loc.y)">\displaystyle $s4</m>
+    <point name="step4loc" showCoordsWhenDragging="false" hide>(5,7)
+      <constraints><constrainToGrid></constrainToGrid></constraints>
+    </point>
+
+    <m name = "wrongstep4" anchor="($wrongstep4loc.x, $wrongstep4loc.y)">\displaystyle $wrongs4</m>
+    <point name="wrongstep4loc" showCoordsWhenDragging="false" hide>(5,-5)
+      <constraints><constrainToGrid></constrainToGrid></constraints>
+    </point>
+
+
+  </graph>
+
+<answer name="studentAns">
+  <award>
+    <when>
+      $qloc.x< 0 and 
+      $step1loc.x< 0 and 
+      $step2loc.x< 0 and
+      $step3loc.x< 0 and 
+      $step4loc.x< 0 and   
+      $wrongstep2loc.x> 0 and
+      $wrongstep3loc.x> 0 and
+      $wrongstep4loc.x> 0 and
+      $qloc.y>$step1loc.y and 
+      $step1loc.y>$step2loc.y and 
+      $step2loc.y>$step3loc.y and
+      $step3loc.y>$step4loc.y
+    </when>
+  </award>
+</answer>
+  
+</problem>
+
+        </script>
+</div>
+</body>
