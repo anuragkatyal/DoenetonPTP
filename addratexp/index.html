@@ -1,0 +1,349 @@
+ <!DOCTYPE html>
+ <html> 
+      <script type="module" src="https://dev.doenet.org/cdn/doenet-standalone.js"> </script>
+     <link rel="stylesheet" href="https://dev.doenet.org/cdn/style.css">
+ <body onload="onPageLoad()">
+  
+ <script>
+ function onPageLoad() {
+   window.renderDoenetToContainer(document.querySelector(".doenetml-applet"));
+ }
+ </script>
+ 
+  <div class="doenetml-applet">
+      <script type="text/doenetml">
+
+        <!-- 
+
+Course:    Intermediate Algebra
+Chapter:   #. Rational Expressions and Equations
+Section:   #. Adding Rational Expressions
+Author:    Anurag Katyal, Fall 2024
+Contact:   anurag@whyoverhow.com 
+
+About the activity: A scaffolded introduction to adding rational expressions.
+
+-->
+
+<setup>
+  <selectFromSequence name="a" from="-3" to="3" exclude="$c 0"></selectFromSequence>
+  <selectFromSequence name="c" from="-3" to="3" exclude="0"></selectFromSequence>
+  <selectFromSequence name="e" from="2" to="6"></selectFromSequence>
+  <math name="f">$e+1</math>
+
+  <math name="b">$a+1</math>
+  <math name="p" simplify>$e-1</math>
+  <math name="q" simplify>$f*$c+$a*($e*$c+<math simplify>-$f</math>+<math simplify>-$b</math>*($e-1)+<math simplify>-$a</math>)</math>
+  <math name="r" simplify>($q*$b+<math simplify>-$f</math>*$c)/$a</math>
+
+  <math name="xPlusa" simplify>x+$a</math>
+  <math name="xPlusb" simplify>x+$b</math>
+  <math name="xPlusc" simplify>x+$c</math>
+
+  <math name="k" simplify>$p+1</math>
+  <math name="l" simplify>$p*$b-$q+$a+$r</math>
+  <math name="m" simplify>$q*$b+<math simplify>-$a</math>*$r</math>
+
+  <math name="numer" simplify>$k*x^2+$l*x-$m</math>
+  
+  <math name="firstFracNum" simplify>$p*x+<math simplify>-$q</math></math>
+  <math name="secondFracNum" simplify>x+<math simplify>$r</math></math>
+  
+  <math name="firstDenomExpanded" expand>($xPlusa)*($xPlusc)</math>
+  <math name="secondDenomExpanded" expand>($xPlusb)*($xPlusc)</math>
+
+  <math name="simplifiedNum" expand simplify>$firstFracNum*$xPlusb+$secondFracNum*$xPlusa</math>
+  <math name="factoredNum" simplify="numbers">($xPlusc)*($e*x+<math simplify>-$f</math>)</math>
+
+  <math name="finalNum" simplify="numbers">($e*x+<math simplify>-$f</math>)</math>
+  <math name="finalDen" expand>($xPlusa)*($xPlusb)</math>
+</setup>
+
+<title>Adding/Subtracting Rational Expressions</title>
+
+<em>This activity will reveal content as you work through it.</em>
+
+  <p>Let's say we wish to add the following rational expressions: <me>\frac{$firstFracNum}{$firstDenomExpanded}+\frac{$secondFracNum}{$secondDenomExpanded}</me></p>
+
+<!-- Step 1: Factor all the denominators, if possible. -->
+
+<problem boxed><title>Step 1: Factor all the denominators, if possible.</title>
+  
+  <ul>
+    <li>Before adding rational expressions, we must ensure that all rational expressions have a common denominator. We begin this process by factoring all the denominators, if possible.</li>
+  </ul>
+
+  <p><m>\frac{$firstFracNum}{$firstDenomExpanded}+\frac{$secondFracNum}{$secondDenomExpanded}=</m>
+    <answer name="step1Denom" symbolicEquality>
+      <mathInput prefillLatex="\frac{$firstFracNum}{}+\frac{$secondFracNum}{}"></mathInput>
+        <award>($firstFracNum)/(($xPlusa)($xPlusc))+($secondFracNum)/(($xPlusb)($xPlusc))</award>
+        <award>($firstFracNum)/(($xPlusa)($xPlusc))+($secondFracNum)/(($xPlusc)($xPlusb))</award>
+        <award>($firstFracNum)/(($xPlusc)($xPlusa))+($secondFracNum)/(($xPlusb)($xPlusc))</award>
+        <award>($firstFracNum)/(($xPlusc)($xPlusa))+($secondFracNum)/(($xPlusc)($xPlusb))</award>
+    </answer>
+  </p>
+</problem>
+
+<!-- Step 2: Find the LCD. -->
+
+<problem boxed><title>Step 2: Find the Least Common Denominator.</title>
+  <conditionalContent condition="$step1Denom.creditAchieved=1">
+  
+  <ul>
+    <li>The Least Common Denominator (LCD) is the product of all the unique factors of the denominators. For instance, if the denominators factor to <m>($xPlusa)($xPlusb)</m> and <m>(x+3)(x+4)</m>, the LCD would be <m>($xPlusa)($xPlusb)(x+3)(x+4)</m>.</li> 
+    <li>Instead, if the denominators factor to <m>($xPlusa)($xPlusb)</m> and <m>($xPlusb)(x+3)</m>, the LCD would be <m>($xPlusa)($xPlusb)(x+3)</m>.</li>
+    <li>If the same factor appears a different number of times in both denominators, the higher number of factors is included in the LCD. For instance, if the denominators factor to <m>($xPlusa)($xPlusa)</m> and <m>($xPlusa)($xPlusb)</m>, the LCD would be <m>($xPlusa)($xPlusa)($xPlusb)</m>.</li>
+  </ul>
+    
+    <p>For <m>\frac{$firstFracNum}{($xPlusa)($xPlusc)}+\frac{$secondFracNum}{($xPlusb)($xPlusc)}</m>, the LCD is <answer name="studentLCD" symbolicEquality>
+      <mathInput></mathInput>
+        <award>($xPlusa)($xPlusb)($xPlusc)</award>
+        <award>($xPlusa)($xPlusc)($xPlusb)</award>
+        <award>($xPlusb)($xPlusc)($xPlusa)</award>
+        <award>($xPlusb)($xPlusa)($xPlusc)</award>
+        <award>($xPlusc)($xPlusa)($xPlusb)</award>
+        <award>($xPlusc)($xPlusb)($xPlusa)</award>
+      </answer>
+    </p>
+  </conditionalContent>  
+  
+</problem>
+
+
+
+<!-- Step 3: Multiply each fraction by what is missing from the other denominators. The factors and the math of factors must be the same! -->
+
+<problem boxed><title>Step 3: Make common denominators.</title>
+  <conditionalContent condition="$studentLCD.creditAchieved=1">
+ 
+  <ul>
+    <li>Now that we know what the LCD is, we multiply the numerator and the denominator of each fraction by the factor it is missing from the LCD, if any.</li>
+  </ul>
+
+  <p>What would you multiply the first fraction by? 
+    <answer name="firstFracMultiple" symbolicEquality>
+      <mathInput prefillLatex="\frac{}{}"></mathInput>
+        <award>$xPlusb/$xPlusb</award>
+    </answer>
+  </p>
+
+  <p>What would you multiply the second fraction by? 
+    <answer name="secFracMultiple" symbolicEquality>
+      <mathInput prefillLatex="\frac{}{}"></mathInput>
+        <award>$xPlusa/$xPlusa</award>
+    </answer>
+  </p>
+    
+    <p><m>\frac{$firstFracNum}{($xPlusa)($xPlusc)}+\frac{$secondFracNum}{($xPlusb)($xPlusc)}=\frac{$firstFracNum}{($xPlusa)($xPlusc)} \cdot $firstFracMultiple+\frac{$secondFracNum}{($xPlusb)($xPlusc)} \cdot $secFracMultiple</m></p>
+  </conditionalContent>
+</problem>
+  
+<!-- Step 4: Write the expressions as a single fraction with a common denominator. Remember to use parenthesis with subtraction! -->
+
+<p></p>
+
+<problem boxed><title>Step 4: Write the expressions as a single fraction.</title>
+  <conditionalContent condition="$firstFracMultiple.creditAchieved=1 and $secFracMultiple.creditAchieved=1">
+    
+  <ul>
+    <li>Since both fractions have a common denominator now, we can write them as a single fraction with a common denominator. For instance, if we were adding <m>\frac{2x}{$xPlusa}+\frac{5}{$xPlusa}</m>, we could write the sum as <m>\frac{2x+5}{$xPlusa}</m>.</li>
+    <li>Simply rewrite the expression as a single fraction. Do not simplify the numerator!</li>
+  </ul>
+
+    <p><m>\frac{($firstFracNum)($xPlusb)}{$studentLCD}+\frac{($secondFracNum)($xPlusa)}{$studentLCD}=</m><answer name="commonDenomUnsimplified" symbolicEquality>
+      <mathInput prefillLatex="\frac{+}{}"></mathInput>
+        <award>(($firstFracNum)($xPlusb)+($secondFracNum)($xPlusa))/(($xPlusa)($xPlusb)($xPlusc))</award>
+        <award>(($firstFracNum)($xPlusb)+($secondFracNum)($xPlusa))/(($xPlusa)($xPlusc)($xPlusb))</award>
+        <award>(($firstFracNum)($xPlusb)+($secondFracNum)($xPlusa))/(($xPlusb)($xPlusa)($xPlusc))</award>
+        <award>(($firstFracNum)($xPlusb)+($secondFracNum)($xPlusa))/(($xPlusb)($xPlusc)($xPlusa))</award>
+        <award>(($firstFracNum)($xPlusb)+($secondFracNum)($xPlusa))/(($xPlusc)($xPlusa)($xPlusb))</award>
+        <award>(($firstFracNum)($xPlusb)+($secondFracNum)($xPlusa))/(($xPlusc)($xPlusb)($xPlusa))</award>
+        
+        <award>(($xPlusb)($firstFracNum)+($secondFracNum)($xPlusa))/(($xPlusa)($xPlusb)($xPlusc))</award>
+        <award>(($xPlusb)($firstFracNum)+($secondFracNum)($xPlusa))/(($xPlusa)($xPlusc)($xPlusb))</award>
+        <award>(($xPlusb)($firstFracNum)+($secondFracNum)($xPlusa))/(($xPlusb)($xPlusa)($xPlusc))</award>
+        <award>(($xPlusb)($firstFracNum)+($secondFracNum)($xPlusa))/(($xPlusb)($xPlusc)($xPlusa))</award>
+        <award>(($xPlusb)($firstFracNum)+($secondFracNum)($xPlusa))/(($xPlusc)($xPlusa)($xPlusb))</award>
+        <award>(($xPlusb)($firstFracNum)+($secondFracNum)($xPlusa))/(($xPlusc)($xPlusb)($xPlusa))</award>
+        
+        <award>(($firstFracNum)($xPlusb)+($xPlusa)($secondFracNum))/(($xPlusa)($xPlusb)($xPlusc))</award>
+        <award>(($firstFracNum)($xPlusb)+($xPlusa)($secondFracNum))/(($xPlusa)($xPlusc)($xPlusb))</award>
+        <award>(($firstFracNum)($xPlusb)+($xPlusa)($secondFracNum))/(($xPlusb)($xPlusa)($xPlusc))</award>
+        <award>(($firstFracNum)($xPlusb)+($xPlusa)($secondFracNum))/(($xPlusb)($xPlusc)($xPlusa))</award>
+        <award>(($firstFracNum)($xPlusb)+($xPlusa)($secondFracNum))/(($xPlusc)($xPlusa)($xPlusb))</award>
+        <award>(($firstFracNum)($xPlusb)+($xPlusa)($secondFracNum))/(($xPlusc)($xPlusb)($xPlusa))</award>
+        
+        <award>(($xPlusb)($firstFracNum)+($xPlusa)($secondFracNum))/(($xPlusa)($xPlusb)($xPlusc))</award>
+        <award>(($xPlusb)($firstFracNum)+($xPlusa)($secondFracNum))/(($xPlusa)($xPlusc)($xPlusb))</award>
+        <award>(($xPlusb)($firstFracNum)+($xPlusa)($secondFracNum))/(($xPlusb)($xPlusa)($xPlusc))</award>
+        <award>(($xPlusb)($firstFracNum)+($xPlusa)($secondFracNum))/(($xPlusb)($xPlusc)($xPlusa))</award>
+        <award>(($xPlusb)($firstFracNum)+($xPlusa)($secondFracNum))/(($xPlusc)($xPlusa)($xPlusb))</award>
+        <award>(($xPlusb)($firstFracNum)+($xPlusa)($secondFracNum))/(($xPlusc)($xPlusb)($xPlusa))</award>
+        
+        <award>(($secondFracNum)($xPlusa)+($firstFracNum)($xPlusb))/(($xPlusa)($xPlusb)($xPlusc))</award>
+        <award>(($secondFracNum)($xPlusa)+($firstFracNum)($xPlusb))/(($xPlusa)($xPlusc)($xPlusb))</award>
+        <award>(($secondFracNum)($xPlusa)+($firstFracNum)($xPlusb))/(($xPlusb)($xPlusa)($xPlusc))</award>
+        <award>(($secondFracNum)($xPlusa)+($firstFracNum)($xPlusb))/(($xPlusb)($xPlusc)($xPlusa))</award>
+        <award>(($secondFracNum)($xPlusa)+($firstFracNum)($xPlusb))/(($xPlusc)($xPlusa)($xPlusb))</award>
+        <award>(($secondFracNum)($xPlusa)+($firstFracNum)($xPlusb))/(($xPlusc)($xPlusb)($xPlusa))</award>
+        
+        <award>(($secondFracNum)($xPlusa)+($xPlusb)($firstFracNum))/(($xPlusa)($xPlusb)($xPlusc))</award>
+        <award>(($secondFracNum)($xPlusa)+($xPlusb)($firstFracNum))/(($xPlusa)($xPlusc)($xPlusb))</award>
+        <award>(($secondFracNum)($xPlusa)+($xPlusb)($firstFracNum))/(($xPlusb)($xPlusa)($xPlusc))</award>
+        <award>(($secondFracNum)($xPlusa)+($xPlusb)($firstFracNum))/(($xPlusb)($xPlusc)($xPlusa))</award>
+        <award>(($secondFracNum)($xPlusa)+($xPlusb)($firstFracNum))/(($xPlusc)($xPlusa)($xPlusb))</award>
+        <award>(($secondFracNum)($xPlusa)+($xPlusb)($firstFracNum))/(($xPlusc)($xPlusb)($xPlusa))</award>
+        
+        <award>(($xPlusa)($secondFracNum)+($firstFracNum)($xPlusb))/(($xPlusa)($xPlusb)($xPlusc))</award>
+        <award>(($xPlusa)($secondFracNum)+($firstFracNum)($xPlusb))/(($xPlusa)($xPlusc)($xPlusb))</award>
+        <award>(($xPlusa)($secondFracNum)+($firstFracNum)($xPlusb))/(($xPlusb)($xPlusa)($xPlusc))</award>
+        <award>(($xPlusa)($secondFracNum)+($firstFracNum)($xPlusb))/(($xPlusb)($xPlusc)($xPlusa))</award>
+        <award>(($xPlusa)($secondFracNum)+($firstFracNum)($xPlusb))/(($xPlusc)($xPlusa)($xPlusb))</award>
+        <award>(($xPlusa)($secondFracNum)+($firstFracNum)($xPlusb))/(($xPlusc)($xPlusb)($xPlusa))</award>
+        
+        <award>(($xPlusa)($secondFracNum)+($xPlusb)($firstFracNum))/(($xPlusa)($xPlusb)($xPlusc))</award>
+        <award>(($xPlusa)($secondFracNum)+($xPlusb)($firstFracNum))/(($xPlusa)($xPlusc)($xPlusb))</award>
+        <award>(($xPlusa)($secondFracNum)+($xPlusb)($firstFracNum))/(($xPlusb)($xPlusa)($xPlusc))</award>
+        <award>(($xPlusa)($secondFracNum)+($xPlusb)($firstFracNum))/(($xPlusb)($xPlusc)($xPlusa))</award>
+        <award>(($xPlusa)($secondFracNum)+($xPlusb)($firstFracNum))/(($xPlusc)($xPlusa)($xPlusb))</award>
+        <award>(($xPlusa)($secondFracNum)+($xPlusb)($firstFracNum))/(($xPlusc)($xPlusb)($xPlusa))</award>
+    </answer></p>
+  </conditionalContent>
+</problem>
+
+<!-- Step 5: Multiply out the numerator and then combine like terms, if any. -->
+
+<setup>
+  <extractMathOperator name="step5op">$commonDenomSimplified</extractMathOperator>
+  <extractMath name="step5Num" type="operand" operandNumber="1">$commonDenomSimplified</extractMath>
+  <extractMath name="step5Den" type="operand" operandNumber="2">$commonDenomSimplified</extractMath>
+</setup>
+
+<problem boxed><title>Step 5: Simplify the numerator.</title>
+  <conditionalContent condition="$commonDenomUnsimplified.creditAchieved=1">
+  
+  <ul>
+    <li>Next, we FOIL or multiply out the two products in the numerator.</li> 
+    <li>And then combine like terms, if any remain at the end.</li>
+    <li>Be sure to write the numerator in standard from!</li>
+  </ul>
+
+      <p>$commonDenomUnsimplified=<answer>
+      <mathInput name="commonDenomSimplified" prefillLatex="\frac{}{}"></mathInput>
+        <award symbolicEquality>
+          <when>
+            $step5op=<text>/</text> and 
+            <boolean symbolicEquality><math simplify>$step5Num</math>=$numer</boolean> and 
+            <boolean symbolicEquality>$step5Den=($xPlusa)($xPlusb)($xPlusc)</boolean>
+          </when>
+        </award>
+        <award>
+          <when>
+            $step5op=<text>/</text> and
+            <boolean symbolicEquality>$step5Num=$numer</boolean> and
+            <boolean symbolicEquality>$step5Den=($xPlusa)($xPlusc)($xPlusb)</boolean>
+          </when>
+        </award>
+        <award>
+          <when>
+            $step5op=<text>/</text> and
+            <boolean symbolicEquality>$step5Num=$numer</boolean> and
+            <boolean symbolicEquality>$step5Den=($xPlusb)($xPlusa)($xPlusc)</boolean>
+          </when>
+        </award>
+        <award>
+          <when>
+            $step5op=<text>/</text> and
+            <boolean symbolicEquality>$step5Num=$numer</boolean> and
+            <boolean symbolicEquality>$step5Den=($xPlusb)($xPlusc)($xPlusa)</boolean>
+          </when>
+        </award>
+        <award>
+          <when>
+            $step5op=<text>/</text> and
+            <boolean symbolicEquality>$step5Num=$numer</boolean> and
+            <boolean symbolicEquality>$step5Den=($xPlusc)($xPlusb)($xPlusa)</boolean>
+          </when>
+        </award>
+        <award>
+          <when>
+            $step5op=<text>/</text> and
+            <boolean symbolicEquality>$step5Num=$numer</boolean> and
+            <boolean symbolicEquality>$step5Den=($xPlusc)($xPlusa)($xPlusb)</boolean>
+          </when>
+        </award>
+      </answer></p>
+  </conditionalContent>    
+</problem>
+  
+<!-- Step 6: Factor the numerator, if possible. -->
+
+<problem boxed><title>Step 6: Factor the numerator, if possible.</title>
+  <conditionalContent condition="$commonDenomSimplified.creditAchieved=1">
+  
+  <ul>
+    <li>Factor the simplified numerator completely.</li>
+    <li>Remember to factor out the GCF first!</li>
+  </ul>
+
+    <p><m>$commonDenomSimplified=</m><answer name="factoredNumStudent" symbolicEquality>
+      <mathInput prefillLatex="\frac{}{}"></mathInput>
+        <award>(($xPlusc)($e*x+<math expand simplify>-$f</math>))/(($xPlusa)($xPlusb)($xPlusc))</award>
+        <award>(($e*x+<math expand simplify>-$f</math>)($xPlusc))/(($xPlusa)($xPlusb)($xPlusc))</award>
+        
+        <award>(($xPlusc)($e*x+<math expand simplify>-$f</math>))/(($xPlusa)($xPlusc)($xPlusb))</award>
+        <award>(($e*x+<math expand simplify>-$f</math>)($xPlusc))/(($xPlusa)($xPlusc)($xPlusb))</award> 
+        
+        <award>(($xPlusc)($e*x+<math expand simplify>-$f</math>))/(($xPlusb)($xPlusa)($xPlusc))</award>
+        <award>(($e*x+<math expand simplify>-$f</math>)($xPlusc))/(($xPlusb)($xPlusa)($xPlusc))</award>
+        
+        <award>(($xPlusc)($e*x+<math expand simplify>-$f</math>))/(($xPlusb)($xPlusc)($xPlusa))</award> 
+        <award>(($e*x+<math expand simplify>-$f</math>)($xPlusc))/(($xPlusb)($xPlusc)($xPlusa))</award> 
+        
+        <award>(($xPlusc)($e*x+<math expand simplify>-$f</math>))/(($xPlusc)($xPlusb)($xPlusa))</award>
+        <award>(($e*x+<math expand simplify>-$f</math>)($xPlusc))/(($xPlusc)($xPlusb)($xPlusa))</award>
+        
+        <award>(($xPlusc)($e*x+<math expand simplify>-$f</math>))/(($xPlusc)($xPlusa)($xPlusb))</award> 
+        <award>(($e*x+<math expand simplify>-$f</math>)($xPlusc))/(($xPlusc)($xPlusa)($xPlusb))</award>
+      
+    </answer></p>
+  </conditionalContent>
+</problem>
+  
+<!-- Step 7: Divide out common factors, if any. Whatever remains is the answer. -->
+
+<setup>
+<extractMathOperator name="step7op">$finalStudent</extractMathOperator>
+<extractMath name="step7Num" type="operand" operandNumber="1">$finalStudent</extractMath>
+<extractMath name="step7Den" type="operand" operandNumber="2">$finalStudent</extractMath>
+</setup>
+
+<problem boxed><title>Step 7: Reduce the fraction to simplest terms. </title>
+
+  
+  <conditionalContent condition="$factoredNumStudent.creditAchieved=1">
+  
+  <ul>
+    <li>Divide out common factors, if any.</li>
+  </ul>
+  
+    <p><m>\frac{$factoredNum}{$studentLCD}=</m><answer>
+      <mathInput name="finalStudent" prefillLatex="\frac{}{}"></mathInput>
+        <award>
+          <when>            
+            $step7op=<text>/</text> and 
+            <boolean symbolicEquality>$step7Num=<math>$e*x+<math expand simplify>-$f</math></math></boolean> 
+            and <boolean symbolicEquality>$step7Den=<math>($xPlusa)*($xPlusb)</math></boolean>
+            or 
+            $step7op=<text>/</text> and 
+            <boolean symbolicEquality>$step7Num=<math>$e*x+<math expand simplify>-$f</math></math></boolean> 
+            and <boolean symbolicEquality>$step7Den=<math>($xPlusb)*($xPlusa)</math></boolean>
+          </when>
+        </award>
+    </answer></p>
+  </conditionalContent>
+</problem>
+
+</script>
+</div>
+</body>
